@@ -155,7 +155,7 @@ int main() {
             }
 
             case '6': 
-                cout << "Goodbye!" << endl;
+                cout << "Goodbye! Program exiting..." << endl;
                 return 0;
 
             default: 
