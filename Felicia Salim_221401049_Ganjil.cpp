@@ -14,7 +14,7 @@ void Menu() {
     cout << "Todo List Menu" << endl;
     cout << "1. Add a task" << endl;
     cout << "2. View tasks" << endl;
-    cout << "3. Mark task as completed or pending" << endl;
+    cout << "3. Mark task as completed/pending" << endl;
     cout << "4. Remove a task" << endl;
     cout << "5. Search a task" << endl;
     cout << "6. Exit" << endl;
