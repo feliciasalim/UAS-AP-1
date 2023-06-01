@@ -24,7 +24,7 @@ void Menu() {
 void addTask(vector<Task>& todoList) {
     string description;
     cout << "Enter task description: ";
-    getline(cin >> ws, description); //Ensures the input for description is string and not just blank.
+    getline(cin >> ws, description); //Ensures the input for description is string and not just blank/whitespace.
 //storing data within Task struct:
     Task task;
     task.description = description; 
