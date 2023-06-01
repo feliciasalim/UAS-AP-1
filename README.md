@@ -1,6 +1,5 @@
-# UAS AP 1
-# Documentation of ToDo CLI Program in c++
-This ToDo List program is a console-based program that allows user(s) to manage their own tasks in the command line interface. It allows user(s) to add, view, mark, remove, and search their tasks within the ToDo List.
+# Documentation of ToDo CLI Program in C++
+This ToDo List program is a console-based program that allows user(s) to manage their own tasks in the command line interface. It allows user(s) to add, view, mark, remove, and search their tasks within the ToDo List. A menu interface with all the available options will pop up once the program is run. The user only need to enter a number within the options and press Enter. After each action, the user will be directed to the menu interface again, where you can opt for either the available options or exit the program.
 # Functionality :
 1. Add task(s)
 - Allows user to add new tasks to the list.
