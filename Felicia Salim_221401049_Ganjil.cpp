@@ -149,8 +149,7 @@ int main() {
                         cout << n << " ";
                     }
                     cout << endl;
-                //however if there's nothing inside the vector multiple then the output will be "No matching tasks found."
-                } else {
+                } else {  //however if there's nothing inside the vector multiple then the output will be "No matching tasks found."
                     cout << "No matching tasks found." << endl;
                 }
                 break;
