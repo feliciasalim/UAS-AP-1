@@ -9,7 +9,7 @@ struct Task { //to store different data types
     bool completed;
 };
 
-//Function to display menu interface for user opt which choice they want
+//Function to display menu interface for user to opt for which choice they want
 void Menu() {
     cout << "Todo List Menu" << endl;
     cout << "1. Add a task" << endl;
@@ -49,7 +49,7 @@ void viewTasks(vector<Task>& todoList) {
     } 
 }
 
-//Function to mark task inside to-do list by taking the to-do list in viewTasks function
+//Function to mark task inside to-do list 
 void markTask(vector<Task>& todoList) {
     viewTasks(todoList); //to display the todo-list in order to let user determine which task to mark as completed/pending.
     if (todoList.empty()) {
@@ -72,9 +72,9 @@ void markTask(vector<Task>& todoList) {
     cout << "Task "<< index <<  " marked as " << (task.completed ? "completed" : "pending") << "." << endl;
 }
 
-//Function to remove task inside to-do list by taking the to-do list in viewTasks function
+//Function to remove task inside to-do list 
 void removeTask(vector<Task>& todoList) {
-    viewTasks(todoList);
+    viewTasks(todoList); //to display the todo-list in order to let user determine which task to remove.
     if (todoList.empty()) {
         cout << "To-do list is empty!" << endl;
         return;
