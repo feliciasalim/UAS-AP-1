@@ -97,7 +97,7 @@ vector<int> sequentialSearch( vector<Task>& todoList, string& key) {
     vector<int> multiple; //Two vectors incase there are more than 1 keyword found in tasks.
     for (int i = 0; i < todoList.size(); i++) { //checks each element in the vector index for the keyword requested.
         Task& task = todoList[i]; 
-        if (task.description.find(key) != string::npos) { //find function is used to find keyword inside the string. If keyword isn't found, then it will exit if function.
+        if (task.description.find(key) != -1) { //find function is used to find keyword inside the string. If keyword is found, then the expression is true and the result will be stored. However if keyword isn't found, then it will exit the if function. 
             multiple.push_back(i + 1); //stores the task number in which the keyword is found to 'multiple' vector.
         }
     }
