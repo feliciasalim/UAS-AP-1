@@ -4,12 +4,12 @@
 
 using namespace std;
 
-struct Task {
+struct Task { //to store different data types
     string description;
     bool completed;
 };
 
-//Function to display menu interface
+//Function to display menu interface for user opt which choice they want
 void Menu() {
     cout << "Todo List Menu" << endl;
     cout << "1. Add a task" << endl;
@@ -20,17 +20,17 @@ void Menu() {
     cout << "6. Exit" << endl;
 }
 
-//Function to add task into to-do list with help of struct 
+//Function to add task into to-do list  
 void addTask(vector<Task>& todoList) {
     string description;
     cout << "Enter task description: ";
-    getline(cin >> ws, description); //Ensures description is string and not just blank.
-
+    getline(cin >> ws, description); //Ensures the input for description is string and not just blank.
+//storing data within Task struct:
     Task task;
-    task.description = description;
+    task.description = description; 
     task.completed = false;
 
-    todoList.push_back(task);
+    todoList.push_back(task); //store the variables stored in struct to todoList vector.
     cout << "Task added successfully!" << endl;
 }
 
@@ -45,13 +45,13 @@ void viewTasks(vector<Task>& todoList) {
         Task& task = todoList[i];
         cout << i + 1 << ". ";
         cout << (task.completed ? "[V] " : "[ ] "); //ternary operator = if task.completed is true, output is '[V]'. If task.completed is false, then output is '[ ]'.
-        cout << task.description << endl;
-    }
+        cout << task.description << endl; //shows all the description which are inputs from the addTask void function.
+    } 
 }
 
 //Function to mark task inside to-do list by taking the to-do list in viewTasks function
 void markTask(vector<Task>& todoList) {
-    viewTasks(todoList);
+    viewTasks(todoList); //to display the todo-list in order to let user determine which task to mark as completed/pending.
     if (todoList.empty()) {
         cout << "To-do list is empty!" << endl;
         return;
@@ -61,13 +61,13 @@ void markTask(vector<Task>& todoList) {
     cout << "Enter the task number to mark as completed/pending: ";
     cin >> index;
 
-    if (index < 1 || index > todoList.size()) {
+    if (index < 1 || index > todoList.size()) { //ensures the input is within the number of tasks in todo-list.
         cout << "Invalid task number!" << endl;
         return;
     }
 
-    Task& task = todoList[index - 1];
-    task.completed = !task.completed;
+    Task& task = todoList[index - 1]; //keeps track which task is marked as completed/pending.
+    task.completed = !task.completed; //determines if a task is completed/pending.
 
     cout << "Task "<< index <<  " marked as " << (task.completed ? "completed" : "pending") << "." << endl;
 }
@@ -88,17 +88,17 @@ void removeTask(vector<Task>& todoList) {
         cout << "Invalid task number!" << endl;
         return;
     }
-    todoList.erase(todoList.begin() + index - 1);
+    todoList.erase(todoList.begin() + index - 1); //erase the vector element.
     cout << "Task removed successfully!" << endl;
 }
 
 // Function to do sequential search in the to-do list (we use sequential search instead of binary because the scale is smaller in to-do lists)
 vector<int> sequentialSearch( vector<Task>& todoList, string& key) {
-    vector<int> multiple; //Two vectors incase there are more than 1 key found in tasks.
-    for (int i = 0; i < todoList.size(); i++) {
-        Task& task = todoList[i];
-        if (task.description.find(key) != string::npos) { //find function is used to find key inside the string. If key isn't found, then it will exit if function.
-            multiple.push_back(i + 1); 
+    vector<int> multiple; //Two vectors incase there are more than 1 keyword found in tasks.
+    for (int i = 0; i < todoList.size(); i++) { //checks each element in the vector index for the keyword requested.
+        Task& task = todoList[i]; 
+        if (task.description.find(key) != string::npos) { //find function is used to find keyword inside the string. If keyword isn't found, then it will exit if function.
+            multiple.push_back(i + 1); //stores the task number in which the keyword is found to 'multiple' vector.
         }
     }
     return multiple;
@@ -142,12 +142,14 @@ int main() {
                 cout << "Enter the keyword to search: ";
                 cin >> keyword;
                 vector<int> multiple = sequentialSearch(todoList, keyword);
-                if (!multiple.empty()) {
+                //if the vector multiple isn't empty then it will show all the task number (stored in the vector multiple) in which the keyword is found:
+                if (!multiple.empty()) { 
                     cout << endl << "Keyword found in task(s): ";
                     for (int n : multiple) {
                         cout << n << " ";
                     }
                     cout << endl;
+                //however if there's nothing inside the vector multiple then the output will be "No matching tasks found."
                 } else {
                     cout << "No matching tasks found." << endl;
                 }
